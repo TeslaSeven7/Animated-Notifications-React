@@ -31,8 +31,11 @@ export default function NotificationComponent() {
 		<div className='bg-white rounded-xl'>
 			<div className='flex justify-between w-full border-b-zinc-100 border-b-[1px] p-4'>
 				<button
-					className='text-zinc-400 px-2 py-1 hover:text-zinc-500 -mx-2'
+					className='text-zinc-400 px-2 py-1 hover:text-zinc-500 -mx-2 flex items-center group'
 					onClick={addMessage}>
+					<span className=' group-hover:border-zinc-500 rounded-full border-[2px] border-zinc-400 h-5 w-5 flex items-center justify-center me-2 font-bold'>
+						+
+					</span>
 					Add
 				</button>
 				<button
@@ -42,7 +45,7 @@ export default function NotificationComponent() {
 				</button>
 			</div>
 			<div
-				className={`max-h-[400px] px-3 py-2 rounded-xl ${
+				className={`max-h-[400px] px-3 py-2 rounded-xl notif-content ${
 					messages.length > 0 ? 'overflow-y-scroll' : ''
 				}`}>
 				<ul>
@@ -55,26 +58,31 @@ export default function NotificationComponent() {
 											<button
 												className={`flex flex-col w-full p-4 rounded-md transition-colors ${
 													selectedMessages.includes(message.id)
-														? 'bg-blue-400'
+														? 'bg-blue-500'
 														: 'bg-white'
 												} `}
 												onClick={() => toggleMessage(message.id)}>
-												<p
-													className={`font-medium transition-colors ${
-														selectedMessages.includes(message.id)
-															? 'text-white'
-															: 'text-zinc-900'
-													}`}>
-													{message.content[0]}
-												</p>
-												<span
-													className={`text-sm transition-colors ${
-														selectedMessages.includes(message.id)
-															? 'text-white'
-															: 'text-zinc-700'
-													}`}>
-													{message.content[1]}
-												</span>
+												<div className='flex flex-row items-start justify-center'>
+													<p className='pe-2'>{message.content[2]}</p>
+													<div className='text-start'>
+														<p
+															className={`font-medium transition-colors ${
+																selectedMessages.includes(message.id)
+																	? 'text-white'
+																	: 'text-zinc-900'
+															}`}>
+															{message.content[0]}
+														</p>
+														<span
+															className={`text-sm transition-colors ${
+																selectedMessages.includes(message.id)
+																	? 'text-white'
+																	: 'text-zinc-700'
+															}`}>
+															{message.content[1]}
+														</span>
+													</div>
+												</div>
 											</button>
 										</div>
 									</AnimatedListComponent>

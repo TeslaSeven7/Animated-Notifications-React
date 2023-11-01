@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.notif-content::-webkit-scrollbar {
+    width: 7px;
+}
+
+.notif-content::-webkit-scrollbar-track {
+    -webkit-box-shadow: transparent; 
+    border-radius: 10px;
+}
+
+.notif-content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #6c6c6c;
+}
