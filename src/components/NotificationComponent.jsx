@@ -11,13 +11,13 @@ export default function NotificationComponent() {
 		const newMessage = generateMessages();
 		setMessages([...messages, newMessage]);
 	};
-	const enableMessage = (id) => {
+	const selectMessage = (id) => {
 		setSelectedMessages((prev) => {
 			return [...prev, id];
 		});
 	};
 
-	const disableMessage = (id) => {
+	const unSelectMessage = (id) => {
 		setSelectedMessages((prev) => {
 			return prev.filter((i) => i != id);
 		});
@@ -79,8 +79,8 @@ export default function NotificationComponent() {
 												icon={message.content[2]}
 												selectedMessages={selectedMessages}
 												message={message}
-												onClickHandlerEnable={enableMessage}
-												onClickHandlerDisable={disableMessage}
+												onClickHandlerEnable={selectMessage}
+												onClickHandlerDisable={unSelectMessage}
 												onClickHandler2={archiveSingleMessage}
 											/>
 										</div>
