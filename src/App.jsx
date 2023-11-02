@@ -6,7 +6,7 @@ function App() {
 			<div className='mb-10'>
 				<h1 className='text-8xl font-bold text-blue-500 mb-3'>SWIPIT.</h1>
 				<h2 className='text-start text-zinc-200 text-xl'>
-					A swipping notification board made with : <br />{' '}
+					A swiping notification board made with : <br />{' '}
 					<strong>ReactJS, FramerMotion and Tailwind.</strong>
 				</h2>
 			</div>
